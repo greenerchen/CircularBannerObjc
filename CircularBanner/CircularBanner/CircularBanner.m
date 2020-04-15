@@ -68,33 +68,35 @@
 
 - (void)reloadScrollView
 {
-    if ([self.dataSource respondsToSelector:@selector(numberOfItemsInCircularBanner:)] &&
-        [self.dataSource respondsToSelector:@selector(circularBannerView:viewForItemAtIndex:)]) {
-        NSInteger numberOfItems = [self.dataSource numberOfItemsInCircularBanner:self];
-        if (numberOfItems <= 0) {
-            return;
-        }
-        
-        if (numberOfItems == 1) {
-            UIView *firstView = [self.dataSource circularBannerView:self viewForItemAtIndex:0];
-            [self addIntoScrollViewWithView:firstView AtIndex:0];
-            self.scrollView.scrollEnabled = NO;
-            return;
-        }
-        // say there are 5 items. put the last item before the first item (index: 0) and put the first item after the last item (index: 6 numberOfItems+1)
-        // | 4 | 0 | 1 | 2 | 3 | 4 | 0 |
-        UIView *firstView = [self.dataSource circularBannerView:self viewForItemAtIndex:0];
-        [self addIntoScrollViewWithView:firstView AtIndex:numberOfItems+1];
-        UIView *lastView = [self.dataSource circularBannerView:self viewForItemAtIndex:numberOfItems-1];
-        [self addIntoScrollViewWithView:lastView AtIndex:0];
-        for (NSInteger i = 0; i < numberOfItems; i++) {
-            UIView *view = [self.dataSource circularBannerView:self viewForItemAtIndex:i];
-            [self addIntoScrollViewWithView:view AtIndex:i+1];
-        }
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * (numberOfItems + 2), self.scrollView.frame.size.height);
-        // set offset to the first item
-        self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, self.scrollView.contentOffset.y);
+    if (![self.dataSource respondsToSelector:@selector(numberOfItemsInCircularBanner:)] &&
+        ![self.dataSource respondsToSelector:@selector(circularBannerView:viewForItemAtIndex:)]) {
+        return;
     }
+  
+    NSInteger numberOfItems = [self.dataSource numberOfItemsInCircularBanner:self];
+    if (numberOfItems <= 0) {
+        return;
+    }
+    
+    if (numberOfItems == 1) {
+        UIView *firstView = [self.dataSource circularBannerView:self viewForItemAtIndex:0];
+        [self addIntoScrollViewWithView:firstView AtIndex:0];
+        self.scrollView.scrollEnabled = NO;
+        return;
+    }
+    // say there are 5 items. put the last item before the first item (index: 0) and put the first item after the last item (index: 6 numberOfItems+1)
+    // | 4 | 0 | 1 | 2 | 3 | 4 | 0 |
+    UIView *firstView = [self.dataSource circularBannerView:self viewForItemAtIndex:0];
+    [self addIntoScrollViewWithView:firstView AtIndex:numberOfItems+1];
+    UIView *lastView = [self.dataSource circularBannerView:self viewForItemAtIndex:numberOfItems-1];
+    [self addIntoScrollViewWithView:lastView AtIndex:0];
+    for (NSInteger i = 0; i < numberOfItems; i++) {
+        UIView *view = [self.dataSource circularBannerView:self viewForItemAtIndex:i];
+        [self addIntoScrollViewWithView:view AtIndex:i+1];
+    }
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * (numberOfItems + 2), self.scrollView.frame.size.height);
+    // set offset to the first item
+    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, self.scrollView.contentOffset.y);
 }
 
 - (void)addIntoScrollViewWithView:(UIView *)view AtIndex:(NSInteger)index
