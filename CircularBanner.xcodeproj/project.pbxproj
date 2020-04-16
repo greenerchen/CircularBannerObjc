@@ -18,6 +18,8 @@
 		AA41E8B02446E80D00D421EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8AF2446E80D00D421EB /* main.m */; };
 		AA41E8B82446E82200D421EB /* CircularBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8B72446E82200D421EB /* CircularBanner.m */; };
 		AA41E8C024473A1E00D421EB /* CircularBannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8BF24473A1E00D421EB /* CircularBannerTests.m */; };
+		AA97CCF02448439A001EC6FD /* CircularBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8B72446E82200D421EB /* CircularBanner.m */; };
+		AA97CCF124484E6E001EC6FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8A42446E80B00D421EB /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA97CCF124484E6E001EC6FD /* ViewController.m in Sources */,
+				AA97CCF02448439A001EC6FD /* CircularBanner.m in Sources */,
 				AA41E8C024473A1E00D421EB /* CircularBannerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

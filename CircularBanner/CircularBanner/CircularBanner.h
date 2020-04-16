@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+struct CircularBannerModel
+{
+    NSArray *imageNames;
+};
+
 @class CircularBanner;
 
 @protocol CircularBannerDataSource <NSObject>
@@ -20,14 +25,17 @@
 
 @end
 
-@interface CircularBanner : UIView <UIScrollViewDelegate>
+@interface CircularBanner : UIView <UIScrollViewDelegate, CircularBannerDataSource>
+
+@property (nonatomic) struct CircularBannerModel model;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, weak) id<CircularBannerDataSource> dataSource;
-
-@property (nonatomic) BOOL autoScrolledEnabled;
+@property (nonatomic) BOOL autoScrollingEnabled;
 
 - (void)reloadData;
+- (void)scrollToNext;
+- (void)setAutoScrollingEnabled:(BOOL)autoScrolledEnabled withTimeInterval:(NSTimeInterval)timeInterval;
 
 @end
 

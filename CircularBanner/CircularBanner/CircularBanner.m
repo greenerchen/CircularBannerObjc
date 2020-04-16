@@ -19,6 +19,8 @@
     self = [super initWithCoder:coder];
     if (self) {
         [self setupUI];
+        __weak CircularBanner *weakSelf = self;
+        self.dataSource = weakSelf;
     }
     return self;
 }
@@ -28,6 +30,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
+        __weak CircularBanner *weakSelf = self;
+        self.dataSource = weakSelf;
     }
     return self;
 }
@@ -44,11 +48,17 @@
     [self addSubview:self.scrollView];
 }
 
-- (void)setAutoScrolledEnabled:(BOOL)autoScrolledEnabled
+- (void)setModel:(struct CircularBannerModel)model
 {
-    _autoScrolledEnabled = autoScrolledEnabled;
+    _model = model;
+    [self reloadData];
+}
+
+- (void)setAutoScrollingEnabled:(BOOL)autoScrolledEnabled withTimeInterval:(NSTimeInterval)timeInterval
+{
+    _autoScrollingEnabled = autoScrolledEnabled;
     if (autoScrolledEnabled) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(scrollToNext) userInfo:nil repeats:YES];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(scrollToNext) userInfo:nil repeats:YES];
     }
 }
 
@@ -118,6 +128,22 @@
             scrollView.contentOffset = CGPointMake(1 * self.frame.size.width, scrollView.contentOffset.y);
         }
     }
+}
+
+// MARK: - CircularBannerDataSource
+
+- (NSInteger)numberOfItemsInCircularBanner:(CircularBanner *)circularBanner
+{
+    return self.model.imageNames.count;
+}
+
+- (UIView *)circularBannerView:(CircularBanner *)circularBanner viewForItemAtIndex:(NSInteger)index
+{
+    NSString *imageName = self.model.imageNames[index];
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *view = [[UIImageView alloc] initWithImage:image];
+    view.contentMode = UIViewContentModeScaleAspectFill;
+    return view;
 }
 
 @end

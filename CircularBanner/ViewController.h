@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CircularBanner.h"
 
-@interface ViewController : UIViewController <CircularBannerDataSource>
+@interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet CircularBanner *banner;
 
