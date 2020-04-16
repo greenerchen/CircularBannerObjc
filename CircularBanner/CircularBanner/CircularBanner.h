@@ -35,6 +35,7 @@ struct CircularBannerModel
 
 - (void)reloadData;
 - (void)scrollToNext;
+- (void)scrollToPrevious;
 - (void)setAutoScrollingEnabled:(BOOL)autoScrolledEnabled withTimeInterval:(NSTimeInterval)timeInterval;
 
 @end

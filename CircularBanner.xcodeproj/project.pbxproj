@@ -20,6 +20,7 @@
 		AA41E8C024473A1E00D421EB /* CircularBannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8BF24473A1E00D421EB /* CircularBannerTests.m */; };
 		AA97CCF02448439A001EC6FD /* CircularBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8B72446E82200D421EB /* CircularBanner.m */; };
 		AA97CCF124484E6E001EC6FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41E8A42446E80B00D421EB /* ViewController.m */; };
+		AA97CCF424485D69001EC6FD /* TestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AA97CCF324485D69001EC6FD /* TestUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		AA41E8BD24473A1E00D421EB /* CircularBannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CircularBannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA41E8BF24473A1E00D421EB /* CircularBannerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircularBannerTests.m; sourceTree = "<group>"; };
 		AA41E8C124473A1E00D421EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA97CCF224485D69001EC6FD /* TestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUtils.h; sourceTree = "<group>"; };
+		AA97CCF324485D69001EC6FD /* TestUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUtils.m; sourceTree = "<group>"; };
 		EABA7C1AA6B1F696273A32A5 /* Pods_CircularBannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CircularBannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				AA41E8BF24473A1E00D421EB /* CircularBannerTests.m */,
+				AA97CCF524485D6F001EC6FD /* TestUtils */,
 				AA41E8C124473A1E00D421EB /* Info.plist */,
 			);
 			path = CircularBannerTests;
@@ -142,6 +146,15 @@
 				AA41E8B72446E82200D421EB /* CircularBanner.m */,
 			);
 			path = CircularBanner;
+			sourceTree = "<group>";
+		};
+		AA97CCF524485D6F001EC6FD /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				AA97CCF224485D69001EC6FD /* TestUtils.h */,
+				AA97CCF324485D69001EC6FD /* TestUtils.m */,
+			);
+			path = TestUtils;
 			sourceTree = "<group>";
 		};
 		D89E9B573B1FE0D323CC05E7 /* Pods */ = {
@@ -337,6 +350,7 @@
 				AA97CCF124484E6E001EC6FD /* ViewController.m in Sources */,
 				AA97CCF02448439A001EC6FD /* CircularBanner.m in Sources */,
 				AA41E8C024473A1E00D421EB /* CircularBannerTests.m in Sources */,
+				AA97CCF424485D69001EC6FD /* TestUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

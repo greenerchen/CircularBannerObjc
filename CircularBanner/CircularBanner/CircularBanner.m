@@ -71,6 +71,15 @@
     });
 }
 
+- (void)scrollToPrevious
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGFloat offsetX = -self.bounds.size.width;
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x + offsetX, self.scrollView.contentOffset.y) animated:YES];
+        [self.scrollView.delegate scrollViewDidEndDecelerating:self.scrollView];
+    });
+}
+
 - (void)reloadData
 {
     [self reloadScrollView];
