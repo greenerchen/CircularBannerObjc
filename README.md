@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # CircularBannerObjc
-This project demonstrates an infinite/circular scrolling view using UIScrollView and the MVC design pattern in Objective-C. 
+This project demonstrates an infinite/circular scrolling view using UIScrollView and the MVVM design pattern in Objective-C. 
 
 ![Screenshot](CircularBanner.gif)
 
@@ -10,4 +10,4 @@ This project demonstrates an infinite/circular scrolling view using UIScrollView
 - An infinite/circular scrolling banner which can be used for advertising
 
 ## Testing 
-- Unit tests: adopted [iOSSnapshotTestCase](https://github.com/uber/ios-snapshot-test-case/) to do snapshot testing for the scrolling banner  (test coverage of CircularBanner element: over 95%)
+- Unit tests: adopted [iOSSnapshotTestCase](https://github.com/uber/ios-snapshot-test-case/) to do snapshot testing for the scrolling banner  (test coverage of CircularBanner and its view model: over 95%)
