@@ -13,10 +13,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    struct CircularBannerModel model;
-    model.imageNames = @[@"banner-1", @"banner-2", @"banner-3", @"banner-4"];
+    NSArray *imageNames = @[@"banner-1", @"banner-2", @"banner-3", @"banner-4"];
+    CircularBannerModel *model = [[CircularBannerModel alloc] initWithImageNames:imageNames autoScrollingEnabled:YES timeInterval:2.0];
     self.banner.model = model;
-    [self.banner setAutoScrollingEnabled:YES withTimeInterval:2.0];
 }
 
 @end
